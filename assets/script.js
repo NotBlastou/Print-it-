@@ -36,17 +36,20 @@ function updateDots() {
 
 
 arrow_left.addEventListener("click", function() {
-  current_point = (current_point === 0) ? slides.length - 1 : current_point - 1;
-  updateDots();
-  banner.src = "./assets/images/slideshow/" + slides[current_point].image
-}
-);
-
-arrow_right.addEventListener("click", function() {
-  current_point = (current_point === slides.length - 1) ? 0 : current_point + 1;
-  updateDots();
-  banner.src = "./assets/images/slideshow/" + slides[current_point].image
-});
+	current_point = (current_point === 0) ? slides.length - 1 : current_point - 1;
+	updateDots();
+	banner.src = "./assets/images/slideshow/" + slides[current_point].image;
+	const tagLineContainer = document.querySelector('.tag-line');
+	tagLineContainer.innerHTML = slides[current_point].tagLine;
+  });
+  
+  arrow_right.addEventListener("click", function() {
+	current_point = (current_point === slides.length - 1) ? 0 : current_point + 1;
+	updateDots();
+	banner.src = "./assets/images/slideshow/" + slides[current_point].image;
+	const tagLineContainer = document.querySelector('.tag-line');
+	tagLineContainer.innerHTML = slides[current_point].tagLine;
+  });
 
 for (let i = 0; i < slides.length; i++) {
 	const dot = document.createElement('div');
